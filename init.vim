@@ -13,7 +13,7 @@ endif
 " 行号
 set nu
 
-
+" vim-plug插件管理
 call plug#begin('~/.config/nvim/plugged')
 
 " 一个主题
