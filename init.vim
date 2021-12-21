@@ -16,7 +16,7 @@ set nu
 " vim-plug插件管理
 call plug#begin('~/.config/nvim/plugged')
 
-" 一个主题
+" 主题deus
 Plug 'theniceboy/vim-deus'
 
 
