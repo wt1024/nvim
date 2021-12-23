@@ -5,12 +5,12 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""    
 " 如果vim插件管理器没有安装则自动安装    
 " 如果是vim需要修改路径为： 
-     if empty(glob('~/.vim/autoload/plug.vim'))    
+"     if empty(glob('~/.vim/autoload/plug.vim'))    
 " if empty(glob('~/.config/nvim/autoload/plug.vim'))    
-   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs    
-     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim    
-   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC    
- endif
+"    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs    
+"      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim    
+"    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC    
+"  endif
 
 
 
@@ -36,7 +36,7 @@ map <C-l> <C-W>l
 " 未生效
 " syntax on
 
-" vim-plug插件管理
+""""""""""""""""""""""""""""""""""" vim-plug插件管理
 call plug#begin('~/.config/nvim/plugged')
 
 " 主题deus
@@ -47,7 +47,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 
 call plug#end()
-
 
 
 
