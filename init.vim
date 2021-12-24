@@ -45,6 +45,8 @@ Plug 'theniceboy/vim-deus'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" 目录树插件
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
@@ -53,3 +55,35 @@ call plug#end()
 """""""""""""""""""""""""""""""""" 主题
 " 主题 安装插件后才有此主次
 colorscheme deus
+
+
+"""""""""""""""""""""""""""""""""" 复杂配置
+" 相对行号: 行号变成相对，可以用 nj/nk 进行跳转
+set relativenumber number
+au FocusLost * :set norelativenumber number
+au FocusGained * :set relativenumber
+" 插入模式下用绝对行号, 普通模式下用相对
+autocmd InsertEnter * :set norelativenumber number
+autocmd InsertLeave * :set relativenumber
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber number
+  else
+    set relativenumber
+  endif
+endfunc
+nnoremap <C-n> :call NumberToggle()<cr>
+
+" NERDTree config
+map <F2> :NERDTreeToggle<CR>
+" 打开vim 自动打开 NERDTree
+" autocmd vimenter * NERDTree
+" 默认光标在右侧
+" autocmd VimEnter * wincmd w
+
+" 如果打开的窗口只有NERDTree窗口时，直接退出vim (mac 未生效)
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
+
+
+
+
