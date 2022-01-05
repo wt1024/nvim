@@ -28,4 +28,4 @@ rm -rf ~/.vim/autoload
 echo "    ln -sf ${CURRENT_DIR}/autoload ~/.vim/autoload"
 ln -sf ${CURRENT_DIR}/autoload ~/.vim/autoload
 
-echo "step4: 不用移动plugged目录， 原因： autoload/plug.vim 会自动取../plugged"
+echo "step4: 不用移动plugged目录， 原因： autoload/plug.vim(软连对应的真实目录) 会自动取../plugged"

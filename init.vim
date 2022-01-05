@@ -33,6 +33,9 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-W>l
 
+noremap bn :bn<cr>
+noremap bp :bp<cr>
+
 " 未生效
 " syntax on
 
@@ -47,6 +50,14 @@ Plug 'vim-airline/vim-airline-themes'
 
 " 目录树插件
 Plug 'preservim/nerdtree'
+
+" 开屏提示
+Plug 'mhinz/vim-startify'
+
+" 
+Plug 'tpope/vim-surround'
+" 移动插件
+Plug 'matze/vim-move'
 
 call plug#end()
 
@@ -75,15 +86,21 @@ endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
 
 " NERDTree config
-map <F2> :NERDTreeToggle<CR>
+noremap <F2> :NERDTreeToggle<CR>
+" 显示当前文件所在目录目录  Reveal in NERDTree
+noremap <s-r> :exec("NERDTree ".expand('%:h'))<CR>
 " 打开vim 自动打开 NERDTree
-" autocmd vimenter * NERDTree
+autocmd VimEnter * NERDTree
 " 默认光标在右侧
-" autocmd VimEnter * wincmd w
-
-" 如果打开的窗口只有NERDTree窗口时，直接退出vim (mac 未生效)
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
-
+autocmd VimEnter * wincmd w
+" 如果打开的窗口只有NERDTree窗口时，直接退出vim
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 
+" airline
+set laststatus=2  "永远显示状态栏
+" 支持 powerline 字体
+" let g:airline_powerline_fonts = 1  
+" 显示窗口tab和buffer
+let g:airline#extensions#tabline#enabled = 1 
 
