@@ -59,6 +59,9 @@ Plug 'tpope/vim-surround'
 " 移动插件
 Plug 'matze/vim-move'
 
+" 缩进线
+Plug 'yggdroot/indentline'
+
 call plug#end()
 
 
