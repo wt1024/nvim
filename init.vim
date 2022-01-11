@@ -37,13 +37,15 @@ set scrolloff=7
 """""""""""""""""""""""""""""""""" 映射
 let mapleader=","
 " Quickly save the current file
-nnoremap <leader>w :w<CR>
 inoremap <leader>w <Esc>:w<cr>
+noremap <leader>w :w<cr>
 
 " Quickly close the current window
-nnoremap <leader>q :q<CR>
-nnoremap <leader>wq :wq<CR>
+inoremap <leader>q <Esc>:q<CR>
+noremap <leader>q :q<CR>
+
 inoremap <leader>wq <Esc>:wq<CR>
+noremap <leader>wq :wq<CR>
 
 
 " 使用 ctrl+h/j/k/l 选择 window
@@ -136,13 +138,24 @@ Plug 'tpope/vim-surround'
 Plug 'matze/vim-move'
 
 " 模糊搜搜
-Plug 'ctrlpvim/ctrlp.vim'
+" fzf.viim 的 Files代替
+" Plug 'ctrlpvim/ctrlp.vim'
 
 " 文件内移动
 Plug 'easymotion/vim-easymotion'
 
 " 缩进线 未生效
 " Plug 'yggdroot/indentline'
+
+" 模糊搜索
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': { -> fzf#install() }}
+Plug 'junegunn/fzf.vim'
+
+" 搜索和替换
+Plug 'brooth/far.vim'
+
+" 高亮
+Plug 'lfv89/vim-interestingwords'
 
 call plug#end()
 
@@ -175,7 +188,7 @@ nnoremap <C-n> :call NumberToggle()<cr>
 nnoremap <leader>v :NERDTreeFind<CR>
 nnoremap <leader>g :NERDTreeToggle<CR>
 " 显示当前文件所在目录目录  Reveal in NERDTree
-noremap <s-r> :exec("NERDTree ".expand('%:h'))<CR>
+noremap <leader>r :exec("NERDTree ".expand('%:h'))<CR>
 " 打开vim 自动打开 NERDTree
 " autocmd VimEnter * NERDTree
 " 默认光标在右侧
@@ -213,6 +226,9 @@ nmap ss <Plug>(easymotion-s2)
     " 是否打开tabline
     " let g:airline#extensions#tabline#enabled = 1
 " }}}
+
+
+nnoremap <c-p> <Esc>:Files
 
 
 
