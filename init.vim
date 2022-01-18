@@ -151,17 +151,34 @@ Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim'
 
-" 搜索和替换
+" 搜索和替换, 展示替换的预览
 Plug 'brooth/far.vim'
+" 使用
+" :Far foo bar **/*.py
+" :Fardo
 
 " 高亮
 Plug 'lfv89/vim-interestingwords'
 
-call plug#end()
+" 代码补全
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" 代码格式化 :Neoformat
+Plug 'sbdchd/neoformat'
+
+" 代码注释  块选中，gc 增加或者去掉注释
+Plug 'tpope/vim-commentary'
+
+" 显示文件的变动 哪些增加、改变、减少了    好像得重新打开文件才有显示
+Plug 'airblade/vim-gitgutter'
+
+
+call plug#end() 
 
 
 
-"""""""""""""""""""""""""""""""""" 主题
+
+""""""""""""""""""""""""""""""""" 主题
 " 主题 安装插件后才有此主次
 colorscheme deus
 
@@ -227,8 +244,12 @@ nmap ss <Plug>(easymotion-s2)
     " let g:airline#extensions#tabline#enabled = 1
 " }}}
 
-
+" fzf 
 nnoremap <c-p> <Esc>:Files
+
+" coc
+let g:coc_node_path = '/usr/local/bin/node'
+inoremap <silent><expr> <c-b> coc#refresh()
 
 
 
